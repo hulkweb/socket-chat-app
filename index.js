@@ -5,7 +5,7 @@ var io = require('socket.io')(http);
 app.get('/', function(req, res) {
    res.sendfile('index.html');
 });
-
+const PORT=process.env.PORT || 3000;
 users = [];
 io.on('connection', function(socket) {
    console.log('A user connected');
@@ -26,6 +26,6 @@ io.on('connection', function(socket) {
    })
 });
 
-http.listen(3000, function() {
+http.listen(PORT, function() {
    console.log('listening on localhost:3000');
 });
